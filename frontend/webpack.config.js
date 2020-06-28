@@ -1,5 +1,5 @@
 const webpack = require('webpack')
-const ExtractTextPlugin = require('extract-text-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
     // Arquivo de entrada para realizar o build
@@ -70,7 +70,7 @@ module.exports = {
             loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
         },
         {
-            test: /\.woff|.woff2|.ttr|.eot|.svg|.png|.jpg*.*$/,
+            test: /\.woff|.woff2|.ttf|.eot|.svg|.png|.jpg*.*$/,
             loader: 'file'
         }]
     }
