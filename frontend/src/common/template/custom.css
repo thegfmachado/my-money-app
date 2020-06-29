@@ -3,3 +3,9 @@
     bottom: 0px;
     width: 100%;
 }
+
+@media (max-width: 767px) {
+    .small-box .icon {
+        display: unset;
+    }
+}
