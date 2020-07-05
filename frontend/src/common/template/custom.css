@@ -1,7 +1,47 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap");
+
+body.skin-blue.fixed.sidebar-mini.sidebar-collapse .sidebar {
+    max-width: 40px;
+}
+
+*,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+    font-family: "Oswald", sans-serif;
+}
+
 .main-footer {
     position: fixed;
     bottom: 0px;
     width: 100%;
+}
+
+.small-box {
+    border-bottom-right-radius: 25px;
+    border-top-left-radius: 25px;
+    box-shadow: -6px 6px 12px #7d7f82, 6px -6px 12px #ffffff;
+}
+
+.small-box .inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
+    min-height: 120px;
+}
+
+.small-box .inner h5 {
+    font-weight: 300;
 }
 
 @media (max-width: 767px) {
