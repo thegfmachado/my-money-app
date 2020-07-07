@@ -8,14 +8,16 @@ module.exports = {
     // Arquivo de saida do build
     output: {
         path: __dirname + '/public',
-        filename: './app.js'
+        filename: './app.js',
+        publicPath: '/'
     },
 
     // Configurações do servidor para buidar o projeto no modo de desenvolvimento
     devServer: {
         port: 8080,
         // pasta que será carregada no servidor de desenvolvimento
-        contentBase: './public'
+        contentBase: './public',
+        historyApiFallback: true
     },
 
     /* Configurações para personalizar a maneira que o webpack 
