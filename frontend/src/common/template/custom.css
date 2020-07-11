@@ -49,3 +49,11 @@ h6,
         display: unset;
     }
 }
+
+button {
+    margin-left: 5px;
+}
+
+.table-actions {
+    width: 150px;
+}
