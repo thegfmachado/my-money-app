@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { Field, arrayInsert, arrayRemove } from 'redux-form'
 
-import Grid from '../common/layout/grid'
+import Grid from '../common/layout/Grid'
 import Input from '../common/form/Input'
 import IconButton from '../common/widget/IconButton'
 import If from '../common/operator/If'

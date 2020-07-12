@@ -7,7 +7,8 @@ const BASE_URL = 'http://localhost:3003/api'
 const INITIAL_VALUES = { credits: [{}], debts: [{}] }
 
 export function getList() {
-    const request = axios.get(`${BASE_URL}/billingCycles`)
+    const userId = JSON.parse(localStorage.getItem('_mymoney_user'))._id
+    const request = axios.get(`${BASE_URL}/billingCycles?userId=${userId}`)
 
     return {
         type: 'BILLING_CYCLES_FETCHED',
@@ -30,6 +31,10 @@ export function remove(values) {
 function submit(values, method) {
     return dispatch => {
         const id = values._id ? values._id : ''
+        const userId = JSON.parse(localStorage.getItem('_mymoney_user'))._id
+
+        values = { ...values, userId }
+
         axios[method](`${BASE_URL}/billingCycles/${id}`, values)
             .then(resp => {
                 toastr.success("Sucesso", "Operação realizada com sucesso!")

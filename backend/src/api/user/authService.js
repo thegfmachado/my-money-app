@@ -26,8 +26,8 @@ const login = (req, res, next) => {
                 expiresIn: "1 day"
             })
 
-            const { name, email } = user
-            res.json({ name, email, token })
+            const { name, email, _id } = user
+            res.json({ name, email, token, _id })
 
         } else {
             return res.status(400).send({ errors: ['Usuário ou senha inválidos'] })
@@ -36,11 +36,11 @@ const login = (req, res, next) => {
     })
 }
 
-const validateToken = (req, rest, next) => {
+const validateToken = (req, res, next) => {
     const token = req.body.token || ''
 
     jwt.verify(token, env.authSecret, function (err, decoded) {
-        return res.statu(200).send({ valid: !err })
+        return res.status(200).send({ valid: !err })
     })
 }
 
@@ -85,7 +85,6 @@ const signup = (req, res, next) => {
             })
         }
     })
-
 }
 
 module.exports = { login, signup, validateToken }
