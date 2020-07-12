@@ -57,3 +57,7 @@ button {
 .table-actions {
     width: 150px;
 }
+
+.table-fields {
+    min-width: 90px;
+}

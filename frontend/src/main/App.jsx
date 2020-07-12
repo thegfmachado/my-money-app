@@ -1,4 +1,3 @@
-import '../common/template/dependencies'
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
@@ -13,9 +12,7 @@ export default props => (
         <div className='wrapper'>
             <Header />
             <SideBar />
-            <div className="content-wrapper">
-                <Routes />
-            </div>
+            <Routes />
             <Footer />
             <Messages />
         </div>

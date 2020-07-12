@@ -22,7 +22,7 @@ BillingCycle.route('summary', (req, res, next) => {
         $group: { _id: null, credit: { $sum: "$credit" }, debt: { $sum: "$debt" } }
     }, {
         $project: { _id: 0, credit: 1, debt: 1 }
-    }], (error, result) => {
+    }]).exec((error, result) => {
         if (error) {
             res.status(500).json({ errors: [error] })
         } else {

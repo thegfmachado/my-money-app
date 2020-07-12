@@ -58,21 +58,23 @@ class ItemList extends Component {
             <Grid cols={this.props.cols}>
                 <fieldset>
                     <legend>{this.props.legend}</legend>
-                    <table className="table">
-                        <thead>
-                            <tr>
-                                <th>Nome</th>
-                                <th>Valor</th>
-                                <If test={this.props.showStatus}>
-                                    <th>Status</th>
-                                </If>
-                                <th className="table-actions">Ações</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {this.renderRows()}
-                        </tbody>
-                    </table>
+                    <div className="table-responsive">
+                        <table className="table">
+                            <thead>
+                                <tr>
+                                    <th className="table-fields">Nome</th>
+                                    <th className="table-fields">Valor</th>
+                                    <If test={this.props.showStatus}>
+                                        <th className="table-fields">Status</th>
+                                    </If>
+                                    <th className="table-actions">Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {this.renderRows()}
+                            </tbody>
+                        </table>
+                    </div>
                 </fieldset>
             </Grid>
         )
