@@ -1,6 +1,6 @@
 const _ = require('lodash')
 const jwt = require('jsonwebtoken')
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcrypt-nodejs')
 const User = require('./user')
 const env = require('../../.env')
 

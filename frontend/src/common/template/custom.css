@@ -61,3 +61,7 @@ button {
 .table-fields {
     min-width: 90px;
 }
+
+.form-control {
+    height: 35px;
+}

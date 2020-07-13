@@ -2,13 +2,15 @@ import axios from 'axios'
 import { toastr } from 'react-redux-toastr'
 import { reset as resetForm, initialize, destroy } from 'redux-form'
 import { showTabs, selectTab } from '../common/tab/tabActions'
+import consts from '../consts'
 
-const BASE_URL = 'http://localhost:3003/api'
+console.log('AQUI', consts.API_URL)
+
 const INITIAL_VALUES = { credits: [{}], debts: [{}] }
 
 export function getList() {
     const userId = JSON.parse(localStorage.getItem('_mymoney_user'))._id
-    const request = axios.get(`${BASE_URL}/billingCycles?userId=${userId}`)
+    const request = axios.get(`${consts.API_URL}/billingCycles?userId=${userId}`)
 
     return {
         type: 'BILLING_CYCLES_FETCHED',
@@ -35,7 +37,7 @@ function submit(values, method) {
 
         values = { ...values, userId }
 
-        axios[method](`${BASE_URL}/billingCycles/${id}`, values)
+        axios[method](`${consts.API_URL}/billingCycles/${id}`, values)
             .then(resp => {
                 toastr.success("Sucesso", "Operação realizada com sucesso!")
                 dispatch(init())

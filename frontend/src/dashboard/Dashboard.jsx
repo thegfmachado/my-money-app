@@ -19,8 +19,9 @@ class Dashboard extends Component {
     render() {
         const { credit, debt } = this.props.summary
 
-        const validCredit = isNaN(credit) ? 0 : credit
-        const validDebt = isNaN(debt) ? 0 : debt
+        const validCredit = (isNaN(credit) ? 0 : credit)
+        const validDebt = (isNaN(debt) ? 0 : debt)
+        const validConsolidated = (validCredit - validDebt)
 
         return (
             <div>
@@ -28,13 +29,13 @@ class Dashboard extends Component {
                 <Content>
                     <Row>
                         <ValueBox cols="12 4" color="green" icon="bank"
-                            value={`R$ ${validCredit}`} text="Total de Créditos" />
+                            value={`R$ ${validCredit.toLocaleString()}`} text="Total de Créditos" />
 
                         <ValueBox cols="12 4" color="red" icon="credit-card"
-                            value={`R$ ${validDebt}`} text="Total de Débitos" />
+                            value={`R$ ${validDebt.toLocaleString()}`} text="Total de Débitos" />
 
                         <ValueBox cols="12 4" color="blue" icon="money"
-                            value={`R$ ${(validCredit - validDebt)}`} text="Valor Consolidado" />
+                            value={`R$ ${validConsolidated.toLocaleString()}`} text="Valor Consolidado" />
                     </Row>
                 </Content>
             </div>

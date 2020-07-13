@@ -2,11 +2,19 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { Field, arrayInsert, arrayRemove } from 'redux-form'
+import { createNumberMask } from 'redux-form-input-masks';
 
 import Grid from '../common/layout/Grid'
 import Input from '../common/form/Input'
 import IconButton from '../common/widget/IconButton'
 import If from '../common/operator/If'
+import Select from '../common/form/Select';
+
+const currencyMask = createNumberMask({
+    prefix: 'R$ ',
+    decimalPlaces: 2,
+    locale: 'pt-BR',
+})
 
 class ItemList extends Component {
 
@@ -32,11 +40,19 @@ class ItemList extends Component {
                     placeholder="Informe o nome" readOnly={this.props.readOnly} /></td>
 
                 <td><Field name={`${field}[${index}].value`} component={Input}
-                    placeholder="Informe o valor" readOnly={this.props.readOnly} /></td>
+                    placeholder="Informe o valor" readOnly={this.props.readOnly} {...currencyMask} /></td>
 
                 <If test={this.props.showStatus}>
-                    <td><Field name={`${field}[${index}].status`} component={Input}
-                        placeholder="Informe o status" readOnly={this.props.readOnly} /></td>
+                    <td>
+                        <Field name={`${field}[${index}].status`} component={Select}
+                            placeholder="Informe o status" readOnly={this.props.readOnly}>
+
+                            <option value="">Selecione uma opção...</option>
+                            <option value="PENDENTE">Pendente</option>
+                            <option value="AGENDADO">Agendado</option>
+                            <option value="PAGO">Pago</option>
+                        </Field>
+                    </td>
                 </If>
 
                 <td>
