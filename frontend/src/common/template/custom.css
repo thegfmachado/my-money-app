@@ -23,7 +23,13 @@ h6,
 .main-footer {
     position: fixed;
     bottom: 0px;
-    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    width: calc(100% - 230px);
+}
+
+.sidebar-collapse .main-footer {
+    width: calc(100% - 50px);
 }
 
 .small-box {
@@ -48,6 +54,10 @@ h6,
     .small-box .icon {
         display: unset;
     }
+
+    .main-footer {
+        width: 100%;
+    }
 }
 
 button {
@@ -64,4 +74,13 @@ button {
 
 .form-control {
     height: 35px;
+}
+
+.social-media i {
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+.content-wrapper {
+    min-height: 878px;
 }

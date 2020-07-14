@@ -9,5 +9,6 @@ export default props => (
             <MenuItem path="/billingCycles"
                 label="Ciclos de Pagamentos" icon="usd" />
         </MenuTree>
+        <MenuItem path="/help" label="Ajuda" icon="question-circle" />
     </ul>
 )
